@@ -1,0 +1,50 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+calcite-shell {
+  height: 100%;
+}
+
+calcite-shell-panel {
+  --calcite-shell-panel-width: 320px;
+}
+
+arcgis-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-content {
+  padding: 0 0.75rem 1rem;
+}
+
+calcite-block {
+  border-bottom: 1px solid var(--calcite-color-border-3);
+}
+
+#error-message {
+  position: fixed;
+  z-index: 1000;
+  inset: auto 1rem 1rem;
+  max-width: 38rem;
+  margin: auto;
+  padding: 1rem;
+  color: var(--calcite-color-text-1, #222);
+  background: var(--calcite-color-foreground-1, #fff);
+  border-left: 4px solid #d83020;
+  box-shadow: 0 2px 12px #0004;
+}
+
+#error-message[hidden] {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  calcite-shell-panel {
+    --calcite-shell-panel-width: min(320px, 80vw);
+  }
+}

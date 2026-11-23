@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" class="calcite-mode-light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#183c4c" />
+    <title>Visor ArcGIS | España</title>
+  </head>
+  <body>
+    <calcite-shell>
+      <calcite-navigation slot="header">
+        <calcite-navigation-logo slot="logo" heading="Visor ArcGIS" description="Explora España" icon="map"></calcite-navigation-logo>
+        <calcite-action slot="content-end" id="theme-toggle" icon="moon" text="Activar tema oscuro" aria-label="Activar tema oscuro"></calcite-action>
+      </calcite-navigation>
+
+      <calcite-shell-panel id="sidebar" slot="panel-start" display-mode="dock">
+        <calcite-action-bar slot="action-bar" expand-disabled>
+          <calcite-action id="sidebar-toggle" icon="layers" text="Mostrar u ocultar herramientas" active aria-label="Ocultar herramientas" aria-expanded="true"></calcite-action>
+        </calcite-action-bar>
+        <calcite-panel heading="Explorar el mapa" description="Capas, leyenda y mapas base">
+          <div class="sidebar-content">
+            <calcite-block heading="Capas" icon-start="layers" open>
+              <arcgis-layer-list reference-element="map"></arcgis-layer-list>
+            </calcite-block>
+            <calcite-block heading="Leyenda" icon-start="legend" open>
+              <arcgis-legend reference-element="map"></arcgis-legend>
+            </calcite-block>
+            <calcite-block heading="Mapas base" icon-start="basemap" open>
+              <arcgis-basemap-gallery reference-element="map"></arcgis-basemap-gallery>
+            </calcite-block>
+          </div>
+        </calcite-panel>
+      </calcite-shell-panel>
+
+      <arcgis-map id="map" basemap="topo-vector" center="-3.7, 40.2" zoom="5">
+        <arcgis-search slot="top-right"></arcgis-search>
+        <arcgis-zoom slot="top-left"></arcgis-zoom>
+        <arcgis-home slot="top-left"></arcgis-home>
+        <arcgis-compass slot="top-left"></arcgis-compass>
+      </arcgis-map>
+    </calcite-shell>
+    <div id="error-message" role="alert" hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
